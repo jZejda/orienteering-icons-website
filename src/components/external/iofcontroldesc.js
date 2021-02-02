@@ -199,7 +199,7 @@ export default [
     name: 'Boulder cluster',
     sprite: 'boulder-cluster',
     group: 'IOFcontrolDesc',
-    long: 'A cliff or rock face. May be passable or impassable.',
+    long: 'A cliff or rock face. May be passable or impassable.'
   },
   {
     name: 'Stony ground',
