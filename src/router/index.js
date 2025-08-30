@@ -1,15 +1,9 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import Main from '@/components/Main.vue'
 import Error404 from '@/components/Error404.vue'
 
-import VTooltip from 'v-tooltip'
-
-Vue.use(Router)
-Vue.use(VTooltip)
-
-export default new Router({
-  mode: 'history',
+const router = createRouter({
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
@@ -21,9 +15,11 @@ export default new Router({
       component: Main
     },
     {
-      path: '/ioficon/*',
+      path: '/ioficon/:pathMatch(.*)*',
       name: 'Error404',
       component: Error404
     }
   ]
 })
+
+export default router

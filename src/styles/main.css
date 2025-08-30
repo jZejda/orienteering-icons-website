@@ -1,14 +1,8 @@
-/*noinspection CssInvalidAtRule*/
-
-@tailwind preflight;
-/* Here we can add any custom overrides */
-
-.btnactive {
-  @apply .bg-white;
-}
-
-
+@tailwind base;
 @tailwind components;
-
-
 @tailwind utilities;
+
+/* Custom styles */
+.btnactive {
+  @apply bg-white;
+}
