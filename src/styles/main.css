@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom styles */
-.btnactive {
-  @apply bg-white;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 }
