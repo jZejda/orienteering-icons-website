@@ -10,7 +10,7 @@
       <div class="m-4 www-64" style="width: 270px">
         <div class="flex items-center">
           <svg class="ioficons" :class="{ 'icon-solid': iconItem.fill }" viewBox="0 0 24 24">
-            <use :href="'/src/assets/iofico.svg#' + iconItem.sprite" />
+            <use :href="'/iofico.svg#' + iconItem.sprite" />
           </svg>
           <div class="flex flex-col ml-4">
             <p class="text-lg">{{ iconItem.sprite }}</p>

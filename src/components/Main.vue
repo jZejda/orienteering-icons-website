@@ -383,7 +383,7 @@ const activeIcon = ref(null)
 const searchRef = ref(null)
 
 const accent = '#EA580C'
-const spriteUrl = '/src/assets/iofico.svg'
+const spriteUrl = '/iofico.svg'
 
 // ── Dark mode ────────────────────────────────────────────────────────────────
 watch(dark, (val) => {

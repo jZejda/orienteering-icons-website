@@ -7,15 +7,11 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/ioficon/'
-    },
-    {
-      path: '/ioficon/',
       name: 'Main',
       component: Main
     },
     {
-      path: '/ioficon/:pathMatch(.*)*',
+      path: '/:pathMatch(.*)*',
       name: 'Error404',
       component: Error404
     }
