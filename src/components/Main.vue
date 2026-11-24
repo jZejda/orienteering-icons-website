@@ -12,13 +12,13 @@
             </svg>
           </span>
           <span class="font-semibold tracking-tight text-[15px]">Ioficons</span>
-          <span class="hidden sm:inline-flex text-[10px] font-mono px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 text-zinc-500">v0.2</span>
+          <span class="hidden sm:inline-flex text-[10px] font-mono px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 text-zinc-500">2024</span>
         </a>
 
         <nav class="hidden md:flex items-center gap-1 ml-2 text-[13px] text-zinc-600 dark:text-zinc-400">
           <a href="#icons" class="px-2.5 py-1.5 rounded hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Icons</a>
           <a href="#usage" class="px-2.5 py-1.5 rounded hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Usage</a>
-          <a href="https://orienteering.org/resources/mapping/" target="_blank" rel="noreferrer" class="px-2.5 py-1.5 rounded hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">IOF Spec</a>
+          <a href="https://orienteering.sport/iof/rules/control-descriptions/" target="_blank" rel="noreferrer" class="px-2.5 py-1.5 rounded hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">IOF Spec</a>
         </nav>
 
         <div class="flex-1" />
@@ -27,6 +27,7 @@
           <svg class="absolute left-2.5 text-zinc-400" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
           <input
             ref="searchRef"
+            aria-label="Search icons"
             v-model="search"
             type="search"
             placeholder="Search icons…"
@@ -58,7 +59,7 @@
       <div class="sm:hidden px-5 pb-3 -mt-1">
         <div class="relative">
           <svg class="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-          <input v-model="search" type="search" placeholder="Search icons…" class="h-10 w-full pl-9 pr-3 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-sm placeholder:text-zinc-400 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600" />
+          <input ref="mobileSearchRef" v-model="search" aria-label="Search icons" type="search" placeholder="Search icons…" class="h-10 w-full pl-9 pr-3 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-sm placeholder:text-zinc-400 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600" />
         </div>
       </div>
     </header>
@@ -76,7 +77,7 @@
         <div class="relative mx-auto max-w-6xl px-5 sm:px-8 pt-16 sm:pt-24 pb-14 sm:pb-20">
           <div class="inline-flex items-center gap-2 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 backdrop-blur px-3 py-1 text-[11px] font-medium text-zinc-600 dark:text-zinc-400">
             <span class="h-1.5 w-1.5 rounded-full" :style="{ background: accent }" />
-            IOF Control Descriptions · v0.2
+            IOF Control Descriptions · 2024
           </div>
 
           <h1 class="mt-5 text-[40px] sm:text-[64px] leading-[1.02] font-semibold tracking-tight">
@@ -140,9 +141,10 @@
             <button
               v-for="cat in categories"
               :key="cat.id"
+              :data-category="cat.id"
               @click="activeCategory = cat.id"
               :class="[
-                'shrink-0 inline-flex items-center gap-2 h-9 px-3.5 rounded-full text-[13px] font-medium border transition-colors',
+                'shrink-0 inline-flex items-center gap-2 h-9 px-3.5 rounded-full text-sm font-medium border transition-colors',
                 activeCategory === cat.id
                   ? 'bg-zinc-900 text-white border-zinc-900 dark:bg-zinc-50 dark:text-zinc-900 dark:border-zinc-50'
                   : 'bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-900'
@@ -174,6 +176,8 @@
               <button
                 v-for="icon in group.items"
                 :key="icon.sprite"
+                :data-icon-id="icon.id"
+                :aria-label="icon.name"
                 @click="activeIcon = icon"
                 class="group relative flex flex-col items-center justify-center gap-2 p-3 sm:p-4 bg-white dark:bg-zinc-950 transition-all text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-400"
               >
@@ -187,7 +191,7 @@
                     <use :href="spriteUrl + '#' + icon.sprite" />
                   </svg>
                 </div>
-                <div class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500 truncate max-w-full px-1 leading-tight">
+                <div class="text-xs font-mono text-zinc-400 dark:text-zinc-500 truncate max-w-full px-1 leading-tight">
                   {{ icon.sprite }}
                 </div>
                 <span
@@ -217,11 +221,12 @@
           <div class="mt-10 grid gap-5 lg:grid-cols-3">
             <div class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-5">
               <div class="flex items-baseline justify-between mb-4">
-                <h3 class="text-base font-semibold">Install</h3>
+                <h3 class="text-base font-semibold">Download</h3>
                 <div class="font-mono text-[11px] text-zinc-400 tracking-wider">01</div>
               </div>
-              <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-3">Install via npm or grab the sprite from GitHub.</p>
-              <CodeSnippet label="Terminal" :code="usageSnippets.npm" />
+              <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-3">Download the sprite and place it alongside your site.</p>
+              <a :href="spriteDownloadUrl" download="ioficons-sprite.svg" class="inline-block text-sm font-medium underline mb-3">Download SVG sprite</a>
+              <CodeSnippet label="File" :code="usageSnippets.file" />
             </div>
             <div class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-5">
               <div class="flex items-baseline justify-between mb-4">
@@ -255,12 +260,13 @@
             <span class="font-semibold tracking-tight">Ioficons</span>
           </div>
           <p class="mt-2 text-xs text-zinc-500 max-w-md">
-            Open source under MIT. Based on the IOF International Specification for Control Descriptions.
+            Original sources under MIT. Based on IOF Control Descriptions 2024.
+            <a href="/ICONS-NOTICE.txt" class="underline">License and source information</a>.
           </p>
         </div>
         <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-zinc-500">
           <a href="https://github.com/jZejda/orienteering-icons" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">GitHub</a>
-          <a href="https://orienteering.org/resources/mapping/" target="_blank" rel="noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">IOF Mapping</a>
+          <a href="https://orienteering.sport/iof/rules/control-descriptions/" target="_blank" rel="noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">IOF Mapping</a>
           <a href="#usage" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Usage</a>
           <span class="font-mono text-zinc-400">© 2026</span>
         </div>
@@ -277,7 +283,7 @@
         leave-from-class="opacity-100"
         leave-to-class="opacity-0"
       >
-        <div v-if="activeIcon" class="fixed inset-0 z-[60] flex items-end sm:items-center justify-center p-0 sm:p-4" role="dialog" aria-modal="true">
+        <div v-if="activeIcon" class="fixed inset-0 z-[60] flex items-end sm:items-center justify-center p-0 sm:p-4 text-zinc-900 dark:text-zinc-100" role="dialog" aria-modal="true" aria-labelledby="icon-dialog-title">
           <div class="absolute inset-0 bg-zinc-950/40 backdrop-blur-sm" @click="closeModal" />
 
           <Transition
@@ -297,7 +303,7 @@
                   <div class="text-[10px] font-semibold uppercase tracking-[0.14em] text-zinc-500">
                     {{ getCategoryLabel(activeIcon.category) }}
                   </div>
-                  <h3 class="text-lg sm:text-xl font-semibold tracking-tight truncate">{{ activeIcon.name }}</h3>
+                  <h3 id="icon-dialog-title" class="text-lg sm:text-xl font-semibold tracking-tight">{{ activeIcon.name }}</h3>
                 </div>
                 <button @click="closeModal" class="h-9 w-9 inline-flex items-center justify-center rounded-lg text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors" aria-label="Close">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
@@ -330,13 +336,20 @@
                     <dl class="grid grid-cols-2 gap-3 text-[12px]">
                       <div>
                         <dt class="text-zinc-500">Sprite ID</dt>
-                        <dd class="mt-0.5 font-mono text-zinc-900 dark:text-zinc-100">#{{ activeIcon.sprite }}</dd>
+                        <dd class="mt-0.5 font-mono break-all text-zinc-900 dark:text-zinc-100">#{{ activeIcon.sprite }}</dd>
+                      </div>
+                      <div>
+                        <dt class="text-zinc-500">IOF Reference</dt>
+                        <dd class="mt-0.5 font-mono text-zinc-900 dark:text-zinc-100">{{ activeIcon.iof }} · Column {{ activeIcon.column ?? "—" }}</dd>
                       </div>
                       <div>
                         <dt class="text-zinc-500">Viewbox</dt>
                         <dd class="mt-0.5 font-mono text-zinc-900 dark:text-zinc-100">0 0 24 24</dd>
                       </div>
                     </dl>
+                    <p v-if="activeIcon.legacySprite" class="text-xs text-zinc-500">
+                      Original ID <code>#{{ activeIcon.legacySprite }}</code> remains available in the sprite.
+                    </p>
                   </div>
                 </div>
 
@@ -352,8 +365,14 @@
                 <div class="text-[11px] text-zinc-500">
                   Press <kbd class="font-mono px-1.5 py-0.5 rounded bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">Esc</kbd> to close
                 </div>
+                <div class="flex flex-wrap justify-end gap-2">
                 <a
-                  :href="spriteUrl"
+                  :href="`${baseUrl}${activeIcon.file}`"
+                  :download="`${activeIcon.sprite}.svg`"
+                  class="h-9 px-4 inline-flex items-center rounded-lg border border-zinc-300 dark:border-zinc-700 text-xs font-medium"
+                >Download SVG</a>
+                <a
+                  :href="spriteDownloadUrl"
                   download="ioficons-sprite.svg"
                   class="h-9 px-4 inline-flex items-center gap-2 rounded-lg text-white text-xs font-medium hover:opacity-90 transition-opacity"
                   :style="{ background: accent }"
@@ -361,6 +380,7 @@
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
                   Download sprite
                 </a>
+                </div>
               </div>
             </div>
           </Transition>
@@ -372,8 +392,10 @@
 </template>
 
 <script setup>
-import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue'
-import ioficons, { CATEGORIES } from './external/iofcontroldesc.js'
+import { ref, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import ioficons, { CATEGORIES, SPRITE_URL, SPRITE_DOWNLOAD_URL } from './external/iofcontroldesc.js'
+import { matchesIcon } from './external/catalog.js'
+import CodeSnippet from './CodeSnippet.vue'
 
 // ── State ────────────────────────────────────────────────────────────────────
 const dark = ref(false)
@@ -381,9 +403,23 @@ const search = ref('')
 const activeCategory = ref('all')
 const activeIcon = ref(null)
 const searchRef = ref(null)
+const mobileSearchRef = ref(null)
+let modalTrigger = null
 
 const accent = '#EA580C'
-const spriteUrl = '/iofico.svg'
+const spriteUrl = SPRITE_URL
+const spriteDownloadUrl = SPRITE_DOWNLOAD_URL
+const baseUrl = import.meta.env.BASE_URL
+
+watch(activeIcon, async (icon) => {
+  if (icon) {
+    modalTrigger = document.activeElement
+    await nextTick()
+    document.querySelector('[role="dialog"] button[aria-label="Close"]')?.focus()
+  } else {
+    modalTrigger?.focus({ preventScroll: true })
+  }
+})
 
 // ── Dark mode ────────────────────────────────────────────────────────────────
 watch(dark, (val) => {
@@ -398,7 +434,7 @@ const heroStats = [
   { value: icons.length, label: 'Icons' },
   { value: '24×24',      label: 'Viewbox' },
   { value: categories.length - 1, label: 'Categories' },
-  { value: 'MIT',        label: 'License' },
+  { value: '2024',       label: 'IOF Spec' },
 ]
 
 // ── Filtering / grouping ──────────────────────────────────────────────────────
@@ -407,12 +443,13 @@ const filteredIcons = computed(() => {
   return icons.filter((i) => {
     if (activeCategory.value !== 'all' && i.category !== activeCategory.value) return false
     if (!q) return true
-    return i.name.toLowerCase().includes(q) || i.sprite.toLowerCase().includes(q) || i.long.toLowerCase().includes(q)
+    return matchesIcon(i, q)
   })
 })
 
 const groupedIcons = computed(() => {
   if (activeCategory.value !== 'all') {
+    if (!filteredIcons.value.length) return []
     const cat = categories.find(c => c.id === activeCategory.value)
     return [{ id: activeCategory.value, label: cat?.label, items: filteredIcons.value }]
   }
@@ -425,7 +462,7 @@ const groupedIcons = computed(() => {
 const categoryCounts = computed(() => {
   const q = search.value.trim().toLowerCase()
   const base = q
-    ? icons.filter(i => i.name.toLowerCase().includes(q) || i.sprite.toLowerCase().includes(q) || i.long.toLowerCase().includes(q))
+    ? icons.filter(i => matchesIcon(i, q))
     : icons
   const counts = { all: base.length }
   for (const i of base) counts[i.category] = (counts[i.category] || 0) + 1
@@ -442,11 +479,12 @@ function getSpriteSnippet(sprite) {
 }
 
 function getVueSnippet(sprite) {
-  return `<IconItem name="${sprite}" />`
+  return `<template>\n  <svg class="ioficon" viewBox="0 0 24 24">\n    <use href="/iofico.svg#${sprite}"/>\n  </svg>\n</template>`
 }
 
 function focusSearch() {
-  searchRef.value?.focus()
+  const input = window.matchMedia('(min-width: 640px)').matches ? searchRef.value : mobileSearchRef.value
+  input?.focus()
   document.getElementById('icons')?.scrollIntoView({ behavior: 'smooth' })
 }
 
@@ -456,7 +494,7 @@ function closeModal() {
 
 // ── Usage snippets ────────────────────────────────────────────────────────────
 const usageSnippets = {
-  npm: `npm install orienteering-icons`,
+  file: `ioficons-sprite.svg`,
   html: `<svg class="ioficon" viewBox="0 0 24 24">\n  <use href="ioficons-sprite.svg#spur"/>\n</svg>`,
   css: `.ioficon {\n  width: 24px;\n  height: 24px;\n  stroke: currentColor;\n  stroke-width: 2;\n  stroke-linecap: round;\n  stroke-linejoin: round;\n  fill: none;\n}`,
 }
@@ -465,9 +503,20 @@ const usageSnippets = {
 function onKeydown(e) {
   if (e.key === 'Escape') {
     closeModal()
-  } else if (e.key === '/' && document.activeElement?.tagName !== 'INPUT') {
+  } else if (e.key === 'Tab' && activeIcon.value) {
+    const elements = [...document.querySelectorAll('[role="dialog"] a[href], [role="dialog"] button')]
+    const first = elements[0]
+    const last = elements[elements.length - 1]
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault()
+      last?.focus()
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault()
+      first?.focus()
+    }
+  } else if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName) && !document.activeElement?.isContentEditable) {
     e.preventDefault()
-    searchRef.value?.focus()
+    focusSearch()
   }
 }
 
@@ -475,42 +524,6 @@ onMounted(() => window.addEventListener('keydown', onKeydown))
 onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
 </script>
 
-<!-- CodeSnippet is defined as a local child component -->
-<script>
-// Inline sub-component for code blocks with copy button
-export const CodeSnippet = {
-  name: 'CodeSnippet',
-  props: { label: String, code: String },
-  data: () => ({ copied: false }),
-  methods: {
-    async copy() {
-      try {
-        await navigator.clipboard.writeText(this.code)
-        this.copied = true
-        setTimeout(() => { this.copied = false }, 1400)
-      } catch {}
-    }
-  },
-  template: `
-    <div class="rounded-lg border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-zinc-50 dark:bg-zinc-900/50">
-      <div class="flex items-center justify-between px-3 py-2 border-b border-zinc-200 dark:border-zinc-800">
-        <div class="text-[10px] font-semibold uppercase tracking-[0.14em] text-zinc-500">{{ label }}</div>
-        <button @click="copy" class="h-7 px-2 inline-flex items-center gap-1.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-200 text-[11px] font-medium transition-colors">
-          <svg v-if="copied" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-          <svg v-else width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-          {{ copied ? 'Copied' : 'Copy' }}
-        </button>
-      </div>
-      <pre class="p-3 text-[11.5px] leading-relaxed font-mono text-zinc-700 dark:text-zinc-300 overflow-x-auto whitespace-pre">{{ code }}</pre>
-    </div>
-  `
-}
-
-export default {
-  name: 'Main',
-  components: { CodeSnippet },
-}
-</script>
 
 <style>
 /* Icon sprite rendering */

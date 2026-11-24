@@ -1,0 +1,442 @@
+{
+  "0.1": {
+    "name": "Northern",
+    "description": "The more eastern of two similar features, or the eastern-most of several similar features."
+  },
+  "0.2": {
+    "name": "South Eastern",
+    "description": "The more south-eastern of two similar features, or the south-eastern-most of several similar features."
+  },
+  "0.3": {
+    "name": "Upper",
+    "description": "Where the control feature is directly above a similar feature."
+  },
+  "0.4": {
+    "name": "Lower",
+    "description": "Where the control feature is directly below a similar feature."
+  },
+  "0.5": {
+    "name": "Middle",
+    "description": "Where the control feature is the middle one of a number of similar features."
+  },
+  "1.1": {
+    "name": "Terrace",
+    "description": "A level area on a slope."
+  },
+  "1.2": {
+    "name": "Spur",
+    "description": "A contour projection or \"nose\" rising from the surrounding ground."
+  },
+  "1.3": {
+    "name": "Re-entrant",
+    "description": "A contour indentation; a valley; the opposite of a spur."
+  },
+  "1.4": {
+    "name": "Earth Bank",
+    "description": "An abrupt change in ground level which can clearly be distinguished from its surroundings."
+  },
+  "1.5": {
+    "name": "Quarry",
+    "description": "Gravel, sand or stone working in flat or inclined ground."
+  },
+  "1.6": {
+    "name": "Earth Wall",
+    "description": "A narrow wall of earth projecting above the surrounding terrain, may be partially stone-faced, usually man-made."
+  },
+  "1.7": {
+    "name": "Erosion Gully",
+    "description": "An erosion gully or trench, normally dry."
+  },
+  "1.8": {
+    "name": "Small Erosion Gully",
+    "description": "A small erosion gully or trench, normally dry."
+  },
+  "1.9": {
+    "name": "Hill",
+    "description": "A high point. Shown on the map with contour lines."
+  },
+  "1.10": {
+    "name": "Knoll",
+    "description": "A small obvious mound."
+  },
+  "1.11": {
+    "name": "Saddle",
+    "description": "The low point between two higher points."
+  },
+  "1.12": {
+    "name": "Depression",
+    "description": "A depression or hollow from which the ground rises on all sides. Shown on the map with contour lines."
+  },
+  "1.13": {
+    "name": "Small Depression",
+    "description": "A small, shallow, natural depression or hollow."
+  },
+  "1.14": {
+    "name": "Pit",
+    "description": "A pit or hole with distinct steep sides. Usually man-made."
+  },
+  "1.15": {
+    "name": "Broken Ground",
+    "description": "Clearly disturbed ground with features too small or too numerous to be mapped individually."
+  },
+  "1.16": {
+    "name": "Ant Hill",
+    "description": "The mound made by ants or termites."
+  },
+  "2.1": {
+    "name": "Cliff, Crag",
+    "description": "A cliff or rock face. May be passable or impassable."
+  },
+  "2.2": {
+    "name": "Rock Pillar",
+    "description": "A high, natural rock projection."
+  },
+  "2.3": {
+    "name": "Cave",
+    "description": "A hole in a rock face or hill side, often leading to underground workings."
+  },
+  "2.4": {
+    "name": "Boulder",
+    "description": "A prominent free-standing block of rock or stone."
+  },
+  "2.5": {
+    "name": "Boulder Field",
+    "description": "An area covered with so many boulders that they cannot be mapped individually."
+  },
+  "2.6": {
+    "name": "Boulder cluster",
+    "description": "A compact group of closely spaced boulders."
+  },
+  "2.7": {
+    "name": "Stony Ground",
+    "description": "An area covered with many small stones or rocks."
+  },
+  "2.8": {
+    "name": "Bare Rock",
+    "description": "Exposed rock with little or no soil or vegetation cover."
+  },
+  "2.9": {
+    "name": "Narrow Passage",
+    "description": "A gap between two cliffs or rock faces that face each other."
+  },
+  "2.10": {
+    "name": "Trench",
+    "description": "A rocky or artificial trench."
+  },
+  "3.1": {
+    "name": "Lake",
+    "description": "A large body of water, normally shown as uncrossable."
+  },
+  "3.2": {
+    "name": "Pond",
+    "description": "A small body of water, sometimes seasonal or shallow."
+  },
+  "3.3": {
+    "name": "Waterhole",
+    "description": "A hollow or pit containing water."
+  },
+  "3.4": {
+    "name": "River, Stream",
+    "description": "A natural or constructed watercourse."
+  },
+  "3.5": {
+    "name": "Minor Water Channel",
+    "description": "A small ditch or channel that may carry water intermittently."
+  },
+  "3.6": {
+    "name": "Narrow marsh",
+    "description": "A thin strip of marsh or wet ground."
+  },
+  "3.7": {
+    "name": "Marsh",
+    "description": "An area of wet ground with marsh vegetation."
+  },
+  "3.8": {
+    "name": "Firm ground in marsh",
+    "description": "A dry or firm patch within or between areas of marsh."
+  },
+  "3.9": {
+    "name": "Well",
+    "description": "A visible shaft or enclosed source containing water."
+  },
+  "3.10": {
+    "name": "Spring",
+    "description": "A distinct place where water emerges from the ground."
+  },
+  "3.11": {
+    "name": "Water tank / trough",
+    "description": "A constructed container used to hold water."
+  },
+  "4.1": {
+    "name": "Open land",
+    "description": "An area without tree cover, such as grassland or a field."
+  },
+  "4.2": {
+    "name": "Semi-open land",
+    "description": "Open ground with scattered trees or bushes."
+  },
+  "4.3": {
+    "name": "Forest corner",
+    "description": "A corner or tip of woodland projecting into open ground."
+  },
+  "4.4": {
+    "name": "Clearing",
+    "description": "A small open area surrounded by woodland."
+  },
+  "4.5": {
+    "name": "Thicket",
+    "description": "A dense group of vegetation that is difficult to pass through."
+  },
+  "4.6": {
+    "name": "Linear thicket",
+    "description": "A narrow line of dense trees or bushes, including a hedge."
+  },
+  "4.7": {
+    "name": "Vegetation boundary",
+    "description": "A distinct boundary between types of vegetation."
+  },
+  "4.8": {
+    "name": "Copse",
+    "description": "A small group of trees, or a more runnable patch inside denser woodland."
+  },
+  "4.9": {
+    "name": "Prominent tree",
+    "description": "An individual tree that is particularly distinctive."
+  },
+  "4.10": {
+    "name": "Root Stock / Tree Stump",
+    "description": "A prominent uprooted root system or tree stump."
+  },
+  "5.1": {
+    "name": "Road",
+    "description": "A surfaced or unsurfaced road suitable for ordinary vehicles."
+  },
+  "5.2": {
+    "name": "Track / Path",
+    "description": "A visible route made by people, animals or vehicles."
+  },
+  "5.3": {
+    "name": "Ride",
+    "description": "A cleared line through woodland without a distinct path."
+  },
+  "5.4": {
+    "name": "Bridge",
+    "description": "A structure crossing over water or another linear feature."
+  },
+  "5.5": {
+    "name": "Power line",
+    "description": "An overhead power or communication line, cableway or lift."
+  },
+  "5.6": {
+    "name": "Pylon",
+    "description": "A support for an overhead line, cableway or lift."
+  },
+  "5.7": {
+    "name": "Tunnel",
+    "description": "A passage underneath a road, railway or other feature."
+  },
+  "5.8": {
+    "name": "Wall",
+    "description": "A wall built from stone or another material."
+  },
+  "5.9": {
+    "name": "Fence",
+    "description": "A constructed boundary of wire, wood or similar material."
+  },
+  "5.10": {
+    "name": "Crossing point",
+    "description": "A gate, stile or other place to cross a linear barrier."
+  },
+  "5.11": {
+    "name": "Building",
+    "description": "A building or a pillar supporting a roof."
+  },
+  "5.12": {
+    "name": "Paved area",
+    "description": "An area with a hard surface, such as a car park."
+  },
+  "5.13": {
+    "name": "Ruin",
+    "description": "The remains of a damaged or collapsed building."
+  },
+  "5.14": {
+    "name": "Prominent man-made line feature",
+    "description": "A distinctive constructed linear feature, such as an above-ground pipeline."
+  },
+  "5.15": {
+    "name": "Tower / Pylon",
+    "description": "A tower or similar tall constructed structure."
+  },
+  "5.16": {
+    "name": "Shooting platform",
+    "description": "A raised observation or shooting platform attached to a tree."
+  },
+  "5.17": {
+    "name": "Boundary stone / Cairn",
+    "description": "A constructed stone marker or pile of stones."
+  },
+  "5.18": {
+    "name": "Fodder rack",
+    "description": "A structure used to provide feed for animals."
+  },
+  "5.19": {
+    "name": "Charcoal burning ground / Platform",
+    "description": "A former charcoal site or a small constructed level platform."
+  },
+  "5.20": {
+    "name": "Monument or Statue",
+    "description": "A memorial, monument or statue."
+  },
+  "5.21": {
+    "name": "Canopy",
+    "description": "A roofed area that can be entered or passed through."
+  },
+  "5.22": {
+    "name": "Stairway",
+    "description": "A staircase with at least two steps."
+  },
+  "5.23": {
+    "name": "Out of Bounds area",
+    "description": "A small area that must not be entered, such as a flower bed."
+  },
+  "5.24": {
+    "name": "Railway / Tramway",
+    "description": "A railway, tramway or similar railed track."
+  },
+  "6.1": {
+    "name": "Special Item — Cross",
+    "description": "A special feature whose meaning must be explained in the event information."
+  },
+  "6.2": {
+    "name": "Special Item — Circle",
+    "description": "A special feature whose meaning must be explained in the event information."
+  },
+  "8.1": {
+    "name": "Low",
+    "description": "Adds that a feature is particularly low or flat."
+  },
+  "8.2": {
+    "name": "Shallow",
+    "description": "Adds that a hollow or channel is particularly shallow."
+  },
+  "8.3": {
+    "name": "Deep",
+    "description": "Adds that a hollow or channel is particularly deep."
+  },
+  "8.4": {
+    "name": "Overgrown",
+    "description": "Adds that vegetation partly covers the feature."
+  },
+  "8.5": {
+    "name": "Open",
+    "description": "Adds that the surrounding tree cover is relatively open."
+  },
+  "8.6": {
+    "name": "Rocky / Stony",
+    "description": "Adds that the feature is rocky or surrounded by stones."
+  },
+  "8.7": {
+    "name": "Marshy",
+    "description": "Adds that the feature is in wet or marshy ground."
+  },
+  "8.8": {
+    "name": "Sandy",
+    "description": "Adds that the feature or surrounding ground is sandy."
+  },
+  "8.9": {
+    "name": "Needle leaved",
+    "description": "Identifies trees with needle-shaped leaves."
+  },
+  "8.10": {
+    "name": "Broad leaved",
+    "description": "Identifies trees with broad leaves."
+  },
+  "8.11": {
+    "name": "Ruined",
+    "description": "Adds that a constructed feature has fallen down or is damaged."
+  },
+  "10.1": {
+    "name": "Crossing",
+    "description": "Two linear features cross here. Identify the features in columns D and E."
+  },
+  "10.2": {
+    "name": "Junction",
+    "description": "Features meet here. Identify the two features in columns D and E."
+  },
+  "11.1": {
+    "name": "Bend",
+    "description": "A smooth change in the direction of a linear feature."
+  },
+  "12.1": {
+    "name": "North East Side",
+    "description": "The flag is outside the north-east side of the feature."
+  },
+  "12.2": {
+    "name": "South East Edge",
+    "description": "The flag is at the south-east boundary or rim of the feature."
+  },
+  "12.3": {
+    "name": "West Part",
+    "description": "The flag is inside the western part of a larger feature."
+  },
+  "12.4": {
+    "name": "East Corner — Inside",
+    "description": "The flag is inside the corner whose point faces east."
+  },
+  "12.5": {
+    "name": "South Corner — Outside",
+    "description": "The flag is outside the corner whose point faces south."
+  },
+  "12.6": {
+    "name": "South West Tip",
+    "description": "The flag is at the narrow, south-west-pointing tip of the feature."
+  },
+  "12.7": {
+    "name": "North West End",
+    "description": "The flag is at the north-west end of a linear feature."
+  },
+  "12.8": {
+    "name": "Upper part",
+    "description": "The flag is near the upper end of a feature extending up a slope."
+  },
+  "12.9": {
+    "name": "Lower part",
+    "description": "The flag is near the lower end of a feature extending down a slope."
+  },
+  "12.10": {
+    "name": "Top",
+    "description": "The flag is on top of the feature, or on the upper of two levels."
+  },
+  "12.11": {
+    "name": "Foot",
+    "description": "The flag is where the slope of the feature meets the surrounding ground."
+  },
+  "12.12": {
+    "name": "North East Foot",
+    "description": "The flag is at the north-east foot of a feature with several possible foot positions."
+  },
+  "12.13": {
+    "name": "Beneath",
+    "description": "The flag is below the feature, or on the lower of two levels."
+  },
+  "12.14": {
+    "name": "Between",
+    "description": "The flag lies between two features identified separately in columns D and E."
+  },
+  "13.1": {
+    "name": "First Aid post",
+    "description": "First aid is available at this control."
+  },
+  "13.2": {
+    "name": "Refreshment point",
+    "description": "Refreshments are available at this control."
+  },
+  "13.3": {
+    "name": "Manned control",
+    "description": "An official is present at this control."
+  },
+  "15.6": {
+    "name": "Map Flip",
+    "description": "Turn the map over to continue on its other side."
+  }
+}
